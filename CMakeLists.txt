@@ -55,5 +55,22 @@ nanobind_add_module(
   src/nanobind_example_ext.cpp
 )
 
+include(FetchContent)
+FetchContent_Declare(
+  nlohmann_json
+  GIT_REPOSITORY https://github.com/nlohmann/json.git
+  GIT_TAG v3.12.0
+)
+FetchContent_MakeAvailable(nlohmann_json)
+
+FetchContent_Declare(
+  nanobind_json
+  GIT_REPOSITORY https://github.com/Griger5/nanobind_json.git
+  GIT_TAG 6e9e15f
+)
+FetchContent_MakeAvailable(nanobind_json)
+
+target_link_libraries(nanobind_example_ext PUBLIC nlohmann_json::nlohmann_json nanobind_json)
+
 # Install directive for scikit-build-core
 install(TARGETS nanobind_example_ext LIBRARY DESTINATION nanobind_example)
