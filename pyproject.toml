@@ -1,5 +1,8 @@
 [build-system]
-requires = ["scikit-build-core >=0.10", "nanobind >=1.3.2"]
+requires = [
+    "scikit-build-core >=0.10",
+    "nanobind@git+ssh://github.com/wjakob/nanobind.git@53dce4e297c7ead9190a6b637b9fe6406c82aa53"
+]
 build-backend = "scikit_build_core.build"
 
 [project]
