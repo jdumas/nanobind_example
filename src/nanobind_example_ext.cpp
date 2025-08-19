@@ -10,17 +10,14 @@ namespace nl = nlohmann;
 
 using namespace nb::literals;
 
-struct Foo {
+struct Document {
     nl::json data;
 };
-
-// Prefer binding over type caster for std::vector<Foo>
-NB_MAKE_OPAQUE(std::vector<Foo>);
 
 NB_MODULE(nanobind_example_ext, m) {
     m.doc() = "This is a \"hello world\" example with nanobind";
 
-    nb::class_<Foo>(m, "Foo")
+    nb::class_<Document>(m, "Document")
         .def(nb::init<>())
-        .def_rw("data", &Foo::data);
+        .def_rw("data", &Document::data, nb::rv_policy::reference_internal);
 }

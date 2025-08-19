@@ -2,7 +2,7 @@ import nanobind_example as m
 
 
 def test_foo():
-    foo = m.Foo()
+    foo = m.Document()
     foo.data = dict()
 
     x = foo.data
